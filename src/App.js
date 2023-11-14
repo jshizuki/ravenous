@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import BusinessList from './components/BusinessList';
 
-import Business from './Business';
+// import './App.css';
 // import BusinessList from './BusinessList';
 
 function App() {
   return (
     <div className="App">
-      <Business name='MarginOtto Pizzeria' category='Italian' rating={4.5} reviewCount={90} />
+      <BusinessList />
     </div>
   );
 }

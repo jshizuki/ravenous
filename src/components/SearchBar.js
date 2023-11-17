@@ -1,5 +1,8 @@
 import React from 'react';
-// import '.SearchBar.css';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+// import Button from 'react-bootstrap/Button';
+import '../SearchBar.css';
 
 const sortingOptions = {
   'Best Match': 'best_match',
@@ -10,14 +13,20 @@ const sortingOptions = {
 function SearchBar() {
   return (
     <div>
-      <ul>
-        {Object.entries(sortingOptions).map(each => (
-          <li key={each[0]}>{each[1]}</li>
-        ))}
-      </ul>
-      <input placeholder="Search Businesses"></input>
-      <input placeholder="Where?"></input>
-      <button>Let's go</button>
+      <div className="search-options">
+        <ul>
+          {Object.entries(sortingOptions).map(each => (
+            <li key={each[1]}>{each[0]}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="search-bar">
+        <TextField id="outlined-basic" label="Search Businesses" variant="outlined" />
+        <TextField id="outlined-basic" label="Where?" variant="outlined" />
+      </div>
+      <div className="button">
+        <Button variant="contained">Let's go</Button>
+      </div>
     </div>
   )
 }

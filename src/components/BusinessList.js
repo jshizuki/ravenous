@@ -3,11 +3,11 @@ import { businesses } from '../businesses';
 import Business from './Business';
 // import './BusinessList.css';
 
-function BusinessList() {
+function BusinessList(props) {
   return (
     <div>
       {
-        businesses.map(business =>
+        props.businesses.map(business =>
           <Business key={business.id} businessObject={business}/>
         )
       }

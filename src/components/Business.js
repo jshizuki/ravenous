@@ -1,37 +1,52 @@
-import React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-// import './Business.css';
+import React from "react";
+// Manual CSS styling
+import "../css/Business.css";
+// Material UI styling
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import CardMedia from "@mui/material/CardMedia";
 
-function Business(props) {
+const example = {
+  imageSrc: "https://content.codecademy.com/programs/react/ravenous/pizza.jpg",
+  name: "MarginOtto Pizzeria",
+  address: "1010 Paddington Way",
+  city: "Flavortown",
+  state: "NY",
+  zipCode: "10101",
+  category: "ITALIAN",
+  rating: 4.5,
+  reviewCount: 90,
+};
+
+function Business() {
   return (
-    <div>
-      <Card sx={{ maxWidth: 345 }}>
+    <Card variant="outlined" className="card-container">
       <CardMedia
-        sx={{ height: 140 }}
-        image={props.businessObject.imageSrc} alt={props.businessObject.name}
-        title="green iguana"
+        component="img"
+        sx={{ width: 300 }}
+        image={example.imageSrc}
+        alt={example.name}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          <h2>{props.businessObject.name}</h2>
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <p>{props.businessObject.address}</p>
-          <p>{props.businessObject.city}</p>
-          <p>{props.businessObject.state} {props.businessObject.zipCode}</p>
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <p>{props.businessObject.category}</p>
-          <p>{props.businessObject.rating}</p>
-          <p>{props.businessObject.reviewCount}</p>
-        </Typography>
-      </CardContent>
+      <Typography className="name">
+        <b>{example.name}</b>
+      </Typography>
+      <div className="info-container">
+        <div className="left-content">
+          <Typography>{example.address}</Typography>
+          <Typography>{example.city}</Typography>
+          <Typography>{example.state} {example.zipCode}</Typography>
+        </div>
+        <div className="right-content">
+          <Typography className="category">{example.category}</Typography>
+          <Typography className="rating">{example.rating} stars</Typography>
+          <Typography className="review-count">
+            {example.reviewCount} reviews
+          </Typography>
+        </div>
+      </div>
     </Card>
-    </div>
-  )
+  );
 }
 
 export default Business;

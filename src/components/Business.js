@@ -3,45 +3,33 @@ import React from "react";
 import "../css/Business.css";
 // Material UI styling
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+// import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 
-const example = {
-  imageSrc: "https://content.codecademy.com/programs/react/ravenous/pizza.jpg",
-  name: "MarginOtto Pizzeria",
-  address: "1010 Paddington Way",
-  city: "Flavortown",
-  state: "NY",
-  zipCode: "10101",
-  category: "ITALIAN",
-  rating: 4.5,
-  reviewCount: 90,
-};
-
-function Business() {
+function Business(props) {
   return (
     <Card variant="outlined" className="card-container">
       <CardMedia
         component="img"
         sx={{ width: 300 }}
-        image={example.imageSrc}
-        alt={example.name}
+        image={props.businessObject.imageSrc}
+        alt={props.businessObject.name}
       />
       <Typography className="name">
-        <b>{example.name}</b>
+        <b>{props.businessObject.name}</b>
       </Typography>
       <div className="info-container">
         <div className="left-content">
-          <Typography>{example.address}</Typography>
-          <Typography>{example.city}</Typography>
-          <Typography>{example.state} {example.zipCode}</Typography>
+          <Typography>{props.businessObject.address}</Typography>
+          <Typography>{props.businessObject.city}</Typography>
+          <Typography>{props.businessObject.state} {props.businessObject.zipCode}</Typography>
         </div>
         <div className="right-content">
-          <Typography className="category">{example.category}</Typography>
-          <Typography className="rating">{example.rating} stars</Typography>
+          <Typography className="category">{props.businessObject.category}</Typography>
+          <Typography className="rating">{props.businessObject.rating} stars</Typography>
           <Typography className="review-count">
-            {example.reviewCount} reviews
+            {props.businessObject.reviewCount} reviews
           </Typography>
         </div>
       </div>
